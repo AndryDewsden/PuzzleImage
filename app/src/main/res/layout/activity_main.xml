@@ -9,7 +9,7 @@
         android:rowCount="4"
         android:columnCount="4"
         android:padding="16dp">
-        <!-- Плитки будут добавлены программно -->
+        
     </GridLayout>
 
     <Button
