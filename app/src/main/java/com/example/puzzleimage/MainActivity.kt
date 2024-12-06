@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private var emptyTileRow = 3
     private var emptyTileCol = 3
     private lateinit var originalBitmap: Bitmap
-    private val tileSize = 200 // Размер одной плитки
+    private val tileSize = 200
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 if (number < 15) {
                     tiles[i][j] = number++
                 } else {
-                    tiles[i][j] = -1 // Пустая плитка
+                    tiles[i][j] = -1
                 }
             }
         }
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                     val tileBitmap = Bitmap.createBitmap(originalBitmap, x, y, tileSize, tileSize)
                     imageView.setImageBitmap(tileBitmap)
                 } else {
-                    imageView.setImageBitmap(null) // Пустая плитка
+                    imageView.setImageBitmap(null)
                 }
 
                 imageView.setOnClickListener { onTileClick(i, j) }
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
     private fun onTileClick(row: Int, col: Int) {
         if (isAdjacent(row, col)) {
             tiles[emptyTileRow][emptyTileCol] = tiles[row][col]
-            tiles[row][col] = -1 // Пустая плитка
+            tiles[row][col] = -1
             emptyTileRow = row
             emptyTileCol = col
             setupTiles()
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun moveTile(newRow: Int, newCol: Int) {
         tiles[emptyTileRow][emptyTileCol] = tiles[newRow][newCol]
-        tiles[newRow][newCol] = -1 // Пустая плитка
+        tiles[newRow][newCol] = -1
         emptyTileRow = newRow
         emptyTileCol = newCol
     }
